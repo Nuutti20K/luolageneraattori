@@ -1,3 +1,5 @@
+from objects import Vertex
+
 # Huoneella on vasemman ylänurkan koordinaatit sekä leveys ja korkeus
 # Huoneen ulottuvuudet kerrotaan square_size parametrilla kun niitä käsitellään pelialueella
 
@@ -7,15 +9,17 @@ class Room:
         self.width = width
         self.y = y
         self.height = height
+        self.square_size = 20
+        self.x_margin = 200
 
-    def find_center(self, square_size):
-        center_x = self.width * square_size // 2 + self.x * square_size
-        center_y = self.height * square_size // 2 + self.y * square_size
-        return (center_x, center_y)
+    def find_center(self):
+        center_x = self.width * self.square_size // 2 + self.x * self.square_size + self.x_margin
+        center_y = self.height * self.square_size // 2 + self.y * self.square_size
+        return Vertex(center_x, center_y)
 
-    def get_rect(self, square_size):
-        x = self.x * square_size
-        y = self.y * square_size
-        width = self.width * square_size
-        height = self.height * square_size
+    def get_rect(self):
+        x = self.x * self.square_size + self.x_margin
+        y = self.y * self.square_size
+        width = self.width * self.square_size
+        height = self.height * self.square_size
         return (x, y, width, height)
