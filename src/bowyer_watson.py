@@ -1,9 +1,7 @@
-from room import Room
-from objects import Vertex, Edge, Triangle
-
-points = []
+from objects import Vertex, Edge, Triangle, Room
 
 def super_triangle(rooms):
+    points = []
     for room in rooms:
         points.append(room.find_center().to_tuple())
 
@@ -22,9 +20,9 @@ def super_triangle(rooms):
     # Tämän perusteella voidaan etsiä tasasivuisen kolmion pisteet, minkä kanta ja korkeus on kaksinkertainen neliöön verrattuna
 
     square_width = max([(x_max - x_min), (y_max - y_min)])
-    point_a = Vertex(int(x_min - 0.5 * square_width), y_min)
-    point_b = Vertex(int(x_min + 1.5 * square_width), y_min)
-    point_c = Vertex(int(x_min + 0.5 * square_width), int(y_min + 2 * square_width))
+    point_a = Vertex(x_min - 0.5 * square_width, y_min)
+    point_b = Vertex(x_min + 1.5 * square_width), y_min
+    point_c = Vertex(x_min + 0.5 * square_width, y_min + 2 * square_width)
 
     return Triangle(point_a, point_b, point_c)
 

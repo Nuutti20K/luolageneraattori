@@ -1,7 +1,6 @@
 import pygame
-from room import Room
 from bowyer_watson import super_triangle
-from objects import Vertex, Edge, Triangle
+from objects import Vertex, Edge, Triangle, Room
 
 # Mielivaltainen lista neliskulmaisia huoneita
 # Toistaiseksi huoneet sijoittuvat 20x20 ruudukkoon
@@ -35,11 +34,7 @@ def main():
         pygame.draw.circle(display, red, vertex.to_tuple(), 2)
 
 
-    pygame.draw.circle(display, red, triangle.find_cirmumcenter().to_tuple(), 2)
-    koklu = Edge(triangle.find_cirmumcenter(), triangle.v1)
-
-    print(koklu.length())
-    print(triangle.find_cirmumcenter2())
+    pygame.draw.circle(display, red, triangle.find_circumcenter().to_tuple(), 2)
 
     pygame.display.flip()
 
