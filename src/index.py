@@ -1,5 +1,6 @@
 import pygame
-from bowyer_watson import super_triangle
+import time
+from bowyer_watson import super_triangle, bowyer_watson
 from objects import Vertex, Edge, Triangle, Room
 
 # Mielivaltainen lista neliskulmaisia huoneita
@@ -35,6 +36,13 @@ def main():
 
 
     pygame.draw.circle(display, red, triangle.find_circumcenter().to_tuple(), 2)
+
+    triangles = bowyer_watson(rooms)
+
+    for triangle in triangles:
+        pygame.draw.line(display, red, triangle.v1.to_tuple(), triangle.v2.to_tuple())
+        pygame.draw.line(display, red, triangle.v2.to_tuple(), triangle.v3.to_tuple())
+        pygame.draw.line(display, red, triangle.v3.to_tuple(), triangle.v1.to_tuple())
 
     pygame.display.flip()
 

@@ -31,6 +31,9 @@ class Vertex:
 
     def to_tuple(self):
         return (self.x, self.y)
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
 
 class Edge:
     def __init__(self, v1, v2):
@@ -40,6 +43,12 @@ class Edge:
     def length(self):
         length = math.sqrt(abs(self.v1.x - self.v2.x)**2 + abs(self.v1.y - self.v2.y)**2)
         return length
+    
+    def reverse(self):
+        return Edge(self.v2, self.v1)
+    
+    def __eq__(self, other):
+        return (self.v1 == other.v1 and self.v2 == other.v2) or (self.v2 == other.v1 and self.v1 == other.v2)
 
 class Triangle:
     def __init__(self, v1, v2, v3):
@@ -59,3 +68,9 @@ class Triangle:
         ux = ((ax * ax + ay * ay) * (by - cy) + (bx * bx + by * by) * (cy - ay) + (cx * cx + cy * cy) * (ay - by)) / d
         uy = ((ax * ax + ay * ay) * (cx - bx) + (bx * bx + by * by) * (ax - cx) + (cx * cx + cy * cy) * (bx - ax)) / d
         return Vertex(ux, uy)
+    
+    def inside_circumcircle(self, vertex):
+        center = self.find_circumcenter()
+        radius = Edge(self.v1, center).length()
+        vertex_distance = Edge(vertex, center).length()
+        return vertex_distance < radius
