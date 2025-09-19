@@ -1,6 +1,6 @@
 import pygame
 from bowyer_watson import BowyerWatson
-from objects import Vertex, Edge, Triangle, Room
+from objects import Room
 
 # Mielivaltainen lista neliskulmaisia huoneita
 # Toistaiseksi huoneet sijoittuvat 20x20 ruudukkoon
@@ -23,7 +23,6 @@ def main():
 
     green = (0, 255, 0)
     red = (255, 0, 0)
-    blue = (0, 0, 255)
 
     bowyer_watson = BowyerWatson(rooms)
 
@@ -40,10 +39,12 @@ def main():
 
     pygame.display.flip()
 
-    while True:
+    running = True
+
+    while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
+                running = False
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-from objects import Vertex, Edge, Triangle, Room
+from objects import Vertex, Edge, Triangle
 
 class BowyerWatson:
     def __init__(self, rooms):
@@ -20,12 +20,15 @@ class BowyerWatson:
         y_max = max(y_list)
         y_min = min(y_list)
 
-        # Etsitään pienin neliö, jonka sisään kaikki pisteet mahtuvat
-        # Tämän perusteella voidaan etsiä suorakulmaisen kolmion pisteet, jonka sisään kaikki pisteet mahtuvat
+        # Etsitään pienin neliö, jonka sisään kaikki pisteet mahtuvat.
+        # Tämän perusteella voidaan etsiä suorakulmaisen kolmion pisteet.
 
-        # Wikipedian mukaan riittää, että kolmion sisään mahtuu kaikki pisteet, jotta triangulaatio toimisi
-        # Oikeasti kuitenkin kolmion pitäisi sisällyttää kaikkien mahdolliseten kolmioiden ympäripiirrettyjen ympyröiden keskipisteet
-        # Toistaiseksi ratkasuna toimii kolmion kasvattaminen mielivaltaisella tarpeeksi suurella määrällä
+        # Wikipedian mukaan riittää, että kolmion sisään mahtuu kaikki pisteet.
+        # Oikeasti kuitenkin kolmion pitäisi sisällyttää kaikkien mahdolliseten
+        # kolmioiden ympäripiirrettyjen ympyröiden keskipisteet.
+
+        # Toistaiseksi ratkasuna toimii kolmion kasvattaminen
+        # mielivaltaisella tarpeeksi suurella määrällä
 
         square_width = max([(x_max - x_min), (y_max - y_min)])
         point_a = Vertex(x_min - square_width * 5, y_min - square_width * 5)
@@ -54,15 +57,15 @@ class BowyerWatson:
 
     def unique_edges(self, edges):
         unique_edges = []
-        for i in range(len(edges)):
+        for i, edge1 in enumerate(edges):
             is_unique = True
-            for j in range(len(edges)):
-                if edges[i] == edges[j] and i != j:
+            for j, edge2 in enumerate(edges):
+                if edge1 == edge2 and i != j:
                     is_unique = False
             if is_unique:
-                unique_edges.append(edges[i])
+                unique_edges.append(edge1)
         return unique_edges
-    
+
     def triangulate(self):
         st = self.super_triangle()
 

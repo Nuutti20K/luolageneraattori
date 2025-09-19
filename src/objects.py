@@ -30,7 +30,7 @@ class Vertex:
 
     def to_tuple(self):
         return (self.x, self.y)
-    
+
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
@@ -38,13 +38,16 @@ class Edge:
     def __init__(self, v1, v2):
         self.v1 = v1
         self.v2 = v2
-    
+
     def length(self):
         length = math.sqrt((self.v1.x - self.v2.x)**2 + (self.v1.y - self.v2.y)**2)
         return length
-    
+
     def __eq__(self, other):
-        return (self.v1 == other.v1 and self.v2 == other.v2) or (self.v2 == other.v1 and self.v1 == other.v2)
+        return (
+            (self.v1 == other.v1 and self.v2 == other.v2) or
+            (self.v2 == other.v1 and self.v1 == other.v2)
+        )
 
 class Triangle:
     def __init__(self, v1, v2, v3):
@@ -59,12 +62,12 @@ class Triangle:
         by = self.v2.y
         cx = self.v3.x
         cy = self.v3.y
-        
-        d = 2 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by))
-        ux = ((ax * ax + ay * ay) * (by - cy) + (bx * bx + by * by) * (cy - ay) + (cx * cx + cy * cy) * (ay - by)) / d
-        uy = ((ax * ax + ay * ay) * (cx - bx) + (bx * bx + by * by) * (ax - cx) + (cx * cx + cy * cy) * (bx - ax)) / d
+
+        d = 2 * (ax * (by-cy) + bx * (cy-ay) + cx * (ay-by))
+        ux = ((ax*ax+ay*ay) * (by-cy) + (bx*bx+by*by) * (cy-ay) + (cx*cx+cy*cy) * (ay-by)) / d
+        uy = ((ax*ax+ay*ay) * (cx-bx) + (bx*bx+by*by) * (ax-cx) + (cx*cx+cy*cy) * (bx-ax)) / d
         return Vertex(ux, uy)
-    
+
     def inside_circumcircle(self, vertex):
         center = self.find_circumcenter()
         radius = Edge(self.v1, center).length()
