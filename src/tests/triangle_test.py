@@ -15,7 +15,7 @@ class TestTriangle(unittest.TestCase):
         self.assertEqual(coordinates, (2,2))
 
     def test_inside_circumcircle(self):
-        self.assertEqual(self.triangle.inside_circumcircle(Vertex(2,3)), True)
+        self.assertTrue(self.triangle.inside_circumcircle(Vertex(2,3)))
 
     def test_not_inside_circumcircle(self):
-        self.assertEqual(self.triangle.inside_circumcircle(Vertex(5,5)), False)
+        self.assertFalse(self.triangle.inside_circumcircle(Vertex(5,5)))

@@ -9,7 +9,7 @@ class TestTriangle(unittest.TestCase):
         self.assertEqual(self.vertex.to_tuple(), (1,2))
 
     def test_is_equal(self):
-        self.assertEqual(self.vertex == self.vertex, True)
+        self.assertTrue(self.vertex == self.vertex)
 
     def test_not_equal(self):
-        self.assertEqual(Vertex(3,1) == Vertex(3,2), False)
+        self.assertFalse(Vertex(3,1) == Vertex(3,2))

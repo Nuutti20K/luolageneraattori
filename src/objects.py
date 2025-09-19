@@ -40,7 +40,7 @@ class Edge:
         self.v2 = v2
     
     def length(self):
-        length = math.sqrt(abs(self.v1.x - self.v2.x)**2 + abs(self.v1.y - self.v2.y)**2)
+        length = math.sqrt((self.v1.x - self.v2.x)**2 + (self.v1.y - self.v2.y)**2)
         return length
     
     def __eq__(self, other):

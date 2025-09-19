@@ -1,5 +1,5 @@
 import pygame
-from bowyer_watson import super_triangle, bowyer_watson
+from bowyer_watson import BowyerWatson
 from objects import Vertex, Edge, Triangle, Room
 
 # Mielivaltainen lista neliskulmaisia huoneita
@@ -25,7 +25,9 @@ def main():
     red = (255, 0, 0)
     blue = (0, 0, 255)
 
-    triangles = bowyer_watson(rooms)
+    bowyer_watson = BowyerWatson(rooms)
+
+    triangles = bowyer_watson.triangulate()
 
     for room in rooms:
         pygame.draw.rect(display, green, room.get_rect())

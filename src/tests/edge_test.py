@@ -17,10 +17,10 @@ class TestEdge(unittest.TestCase):
         self.assertEqual(length, sqrt(32))
 
     def test_is_equal(self):
-        self.assertEqual(self.edge == self.edge, True)
+        self.assertTrue(self.edge == self.edge)
 
     def test_reverse_is_equal(self):
-        self.assertEqual(self.edge == self.reverse, True)
+        self.assertTrue(self.edge == self.reverse)
 
     def test_not_equal(self):
-        self.assertEqual(self.edge == self.different, False)
+        self.assertFalse(self.edge == self.different)
