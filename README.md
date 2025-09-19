@@ -1,7 +1,5 @@
 # luolageneraattori
 
-Matopelissä on tarkoitus ohjata matoa ja kerätä pellettejä. Aina kun mato syö pelletin sen kokonaispituus kasvaa, ja kun mato törmää itseensä tai seinään, peli loppuu.
-
 ## Dokumentaatio
 
 - [Määrittelydokumentti](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/maarittelydokumentti.md)
@@ -12,6 +10,7 @@ Matopelissä on tarkoitus ohjata matoa ja kerätä pellettejä. Aina kun mato sy
 
 - [Viikkoraportti 1](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti1.md)
 - [Viikkoraportti 2](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti2.md)
+- [Viikkoraportti 3](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti3.md)
 
 ## Asennus
 Tarvittavat riippuvuudet asennetaan komennolla:

@@ -1,5 +1,4 @@
 import pygame
-import time
 from bowyer_watson import super_triangle, bowyer_watson
 from objects import Vertex, Edge, Triangle, Room
 
@@ -24,20 +23,13 @@ def main():
 
     green = (0, 255, 0)
     red = (255, 0, 0)
+    blue = (0, 0, 255)
+
+    triangles = bowyer_watson(rooms)
 
     for room in rooms:
         pygame.draw.rect(display, green, room.get_rect())
         pygame.draw.circle(display, red, room.find_center().to_tuple(), 2)
-
-    triangle = super_triangle(rooms)
-    triangle_points = [triangle.v1, triangle.v2, triangle.v3]
-    for vertex in triangle_points:
-        pygame.draw.circle(display, red, vertex.to_tuple(), 2)
-
-
-    pygame.draw.circle(display, red, triangle.find_circumcenter().to_tuple(), 2)
-
-    triangles = bowyer_watson(rooms)
 
     for triangle in triangles:
         pygame.draw.line(display, red, triangle.v1.to_tuple(), triangle.v2.to_tuple())

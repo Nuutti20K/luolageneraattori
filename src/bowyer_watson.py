@@ -1,5 +1,4 @@
 from objects import Vertex, Edge, Triangle, Room
-import time
 
 def super_triangle(rooms):
     points = []
@@ -15,15 +14,19 @@ def super_triangle(rooms):
     x_max = max(x_list)
     x_min = min(x_list)
     y_max = max(y_list)
-    y_min = min(y_list) - 10
+    y_min = min(y_list)
 
     # Etsitään pienin neliö, jonka sisään kaikki pisteet mahtuvat
-    # Tämän perusteella voidaan etsiä tasasivuisen kolmion pisteet, minkä kanta ja korkeus on kaksinkertainen neliöön verrattuna
+    # Tämän perusteella voidaan etsiä suorakulmaisen kolmion pisteet, jonka sisään kaikki pisteet mahtuvat
+
+    # Wikipedian mukaan riittää, että kolmion sisään mahtuu kaikki pisteet, jotta triangulaatio toimisi
+    # Oikeasti kuitenkin kolmion pitäisi sisällyttää kaikkien mahdolliseten kolmioiden ympäripiirrettyjen ympyröiden keskipisteet
+    # Toistaiseksi ratkasuna toimii kolmion kasvattaminen mielivaltaisella tarpeeksi suurella määrällä
 
     square_width = max([(x_max - x_min), (y_max - y_min)])
-    point_a = Vertex(x_min - 0.5 * square_width, y_min)
-    point_b = Vertex(x_min + 1.5 * square_width, y_min)
-    point_c = Vertex(x_min + 0.5 * square_width, y_min + 2 * square_width)
+    point_a = Vertex(x_min - square_width * 5, y_min - square_width * 5)
+    point_b = Vertex(x_min + square_width * 10, y_min - square_width * 5)
+    point_c = Vertex(x_min - square_width * 5, y_min + square_width * 10)
 
     return Triangle(point_a, point_b, point_c)
 
@@ -40,13 +43,10 @@ def add_vertex(vertex, triangles):
 
     edges = unique_edges(edges)
 
-
     for edge in edges:
-        print(edge.v1.to_tuple())
         good_triangles.append(Triangle(edge.v1, edge.v2, vertex))
 
     return good_triangles
-
 
 def bowyer_watson(rooms):
     st = super_triangle(rooms)
@@ -75,6 +75,5 @@ def unique_edges(edges):
             if edges[i] == edges[j] and i != j:
                 is_unique = False
         if is_unique:
-            print("Don't be sad")
             unique_edges.append(edges[i])
     return unique_edges
