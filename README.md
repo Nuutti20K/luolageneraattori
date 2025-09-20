@@ -30,3 +30,7 @@ Kattavuusraportin saa komennolla:
 ```bash
 poetry run invoke coverage-report
 ```
+Pylint ajetaan komennolla:
+```bash
+poetry run invoke lint
+```
