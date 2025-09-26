@@ -1,6 +1,7 @@
 import pygame
 from bowyer_watson import BowyerWatson
 from objects import Room
+from prims import Prims
 
 # Mielivaltainen lista neliskulmaisia huoneita
 # Toistaiseksi huoneet sijoittuvat 20x20 ruudukkoon
@@ -23,10 +24,14 @@ def main():
 
     green = (0, 255, 0)
     red = (255, 0, 0)
+    blue = (0, 0, 255)
 
     bowyer_watson = BowyerWatson(rooms)
 
     triangles = bowyer_watson.triangulate()
+
+    prims = Prims(rooms, triangles)
+    edges = prims.mst()
 
     for room in rooms:
         pygame.draw.rect(display, green, room.get_rect())
@@ -36,6 +41,9 @@ def main():
         pygame.draw.line(display, red, triangle.v1.to_tuple(), triangle.v2.to_tuple())
         pygame.draw.line(display, red, triangle.v2.to_tuple(), triangle.v3.to_tuple())
         pygame.draw.line(display, red, triangle.v3.to_tuple(), triangle.v1.to_tuple())
+
+    for edge in edges:
+        pygame.draw.line(display, blue, edge[0], edge[1], 3)
 
     pygame.display.flip()
 
