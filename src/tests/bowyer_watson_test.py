@@ -3,9 +3,9 @@ from bowyer_watson import BowyerWatson
 from objects import Room, Vertex, Edge, Triangle
 
 rooms = []
-rooms.append(Room(1,1,1,1))
-rooms.append(Room(3,1,13,1))
-rooms.append(Room(15,1,15,1))
+rooms.append(Room(1,1))
+rooms.append(Room(3,13))
+rooms.append(Room(15,15))
 
 class TestBowyerWatson(unittest.TestCase):
     def setUp(self):

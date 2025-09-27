@@ -2,13 +2,14 @@ import math
 
 # Huoneella on vasemman ylänurkan koordinaatit sekä leveys ja korkeus
 # Huoneen ulottuvuudet kerrotaan square_size muutujalla kun niitä käsitellään pelialueella
+# Huoneen leveys ja korkeus on väliaikaisesti muutettu vakioksi satunnaisgeneroinnin helpottamiseksi
 
 class Room:
-    def __init__(self, x, width, y, height):
+    def __init__(self, x, y):
         self.x = x
-        self.width = width
+        self.width = 1
         self.y = y
-        self.height = height
+        self.height = 1
         self.square_size = 40
 
     def find_center(self):
