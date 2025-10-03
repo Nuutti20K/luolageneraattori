@@ -45,6 +45,3 @@ class TestBowyerWatson(unittest.TestCase):
         self.assertTrue(result[0].v1 == Vertex(140,540))
         self.assertTrue(result[0].v2 == Vertex(60,60))
         self.assertTrue(result[0].v3 == Vertex(620,620))
-
-
-        

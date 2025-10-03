@@ -31,7 +31,7 @@ class Prims:
     def add_edges_to_matrix(self):
         edges = self.find_edges()
 
-        # Ineksoidaan solmut vertex_dataan vierekkyys matriisin luomisen helpottamiseksi
+        # Ineksoidaan solmut vertex_indexes sanakirjaan vierekkyys matriisin luomisen helpottamiseksi
         # Lisäksi listataan solmut, jotta niitä voi helposti hakea indeksillä myöhemmin
         for i, edge in enumerate(edges):
             self.vertex_indexes[edge] = i

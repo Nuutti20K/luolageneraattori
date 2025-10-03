@@ -1,4 +1,4 @@
-## Määrittelydokumentti
+# Määrittelydokumentti
 
 Tässä harjoitustyössä käytetään pythonia, enkä hallitse muita kieliä sillä tasolla, että pystyisin tekemään vertaisarviointeja.
 
