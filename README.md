@@ -8,10 +8,11 @@
 
 ### Viikkoraportit
 
-- [Viikkoraportti 1](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti1.md)
-- [Viikkoraportti 2](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti2.md)
-- [Viikkoraportti 3](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti3.md)
-- [Viikkoraportti 4](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportti4.md)
+- [Viikkoraportti 1](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti1.md)
+- [Viikkoraportti 2](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti2.md)
+- [Viikkoraportti 3](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti3.md)
+- [Viikkoraportti 4](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti4.md)
+- [Viikkoraportti 5](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti5.md)
 
 ## Asennus
 Tarvittavat riippuvuudet asennetaan komennolla:
