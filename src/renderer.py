@@ -1,41 +1,35 @@
 import pygame
-from bowyer_watson import BowyerWatson
-from prims import Prims
-from randomize import generate_rooms
-
 
 class Renderer:
     def __init__(self, display):
         self.display = display
+        self.dark_green = (0, 128, 0)
         self.green = (0, 255, 0)
         self.red = (255, 0, 0)
         self.blue = (0, 0, 255)
 
-    def render_rooms(self, amount):
-        # Mielivaltainen lista neliskulmaisia huoneita
-        # Toistaiseksi huoneet sijoittuvat 20x20 ruudukkoon
-
-        rooms = generate_rooms(amount, 20)
-        bowyer_watson = BowyerWatson(rooms)
-
-        triangles = bowyer_watson.triangulate()
-
-        prims = Prims(rooms, triangles)
-        edges = prims.mst()
+    def render_rooms(self, dungeon, toggle):
 
         self.display.fill((0,0,0))
 
-        for room in rooms:
+        for path in dungeon.paths:
+            rect = (path[0] - 20, path[1] - 20, 40, 40)
+            pygame.draw.rect(self.display, self.dark_green, rect)
+
+        for room in dungeon.rooms:
             pygame.draw.rect(self.display, self.green, room.get_rect())
-            pygame.draw.circle(self.display, self.red, room.find_center().to_tuple(), 2)
 
-        for triangle in triangles:
-            pygame.draw.line(self.display, self.red, triangle.v1.to_tuple(), triangle.v2.to_tuple())
-            pygame.draw.line(self.display, self.red, triangle.v2.to_tuple(), triangle.v3.to_tuple())
-            pygame.draw.line(self.display, self.red, triangle.v3.to_tuple(), triangle.v1.to_tuple())
+        if toggle:
+            for triangle in dungeon.triangles:
+                v1 = triangle.v1.to_tuple()
+                v2 = triangle.v2.to_tuple()
+                v3 = triangle.v3.to_tuple()
+                pygame.draw.line(self.display, self.red, v1, v2)
+                pygame.draw.line(self.display, self.red, v2, v3)
+                pygame.draw.line(self.display, self.red, v3, v1)
 
-        for edge in edges:
-            pygame.draw.line(self.display, self.blue, edge[0], edge[1], 3)
+            for edge in dungeon.edges:
+                pygame.draw.line(self.display, self.blue, edge[0], edge[1], 3)
 
         pygame.display.update()
 
