@@ -4,9 +4,12 @@
 Projetin src kansiossa on seuraavat tiedostot:
 - bowyer_watson moduuli käsittelee huoneiden triangulaation ja etsii kaikki potentiaaliset reitit huoneiden välillä
 - prims moduuli etsii trianguloiduista verkosta lyhyimmän virittävän puun
+- dungeon moduuli luo Dungeon objektin, jota käytetään renderöinnissä
+- path_creator hoitaa annettujen edgejen perusteella polkujen generoinnin
 - objects moduuli sisältää algoritmien toimintaan käytettyjä objekteja, eli Room, Vertex, Edge ja Triangle
 - randomize generoi annetun määrän satunnaisia huoneita
 - renderer käsittelee huoneiden ja polkujen piirtämisen
+- game_loop hoitaa syötteiden käsittelyn ja mahdollisen pelilogiikan
 - index käsittelee sovelluksen käynnistyksen ja syötteiden käsittelyn (syötteiden käsittely tarkoitus siirtää gameloop moduuliin)
 - tests kansio sisältää sovelluksen yksikkötestit
 

@@ -13,6 +13,7 @@
 - [Viikkoraportti 3](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti3.md)
 - [Viikkoraportti 4](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti4.md)
 - [Viikkoraportti 5](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti5.md)
+- [Viikkoraportti 5](https://github.com/Nuutti20K/luolageneraattori/blob/master/dokumentaatio/viikkoraportit/viikkoraportti6.md)
 
 ## Asennus
 Tarvittavat riippuvuudet asennetaan komennolla:
@@ -38,4 +39,4 @@ poetry run invoke lint
 ```
 
 ## Käyttöohjeet
-Ohjelmalle syötetään numeronäppäimillä luku väliltä 3 - 400. Kun hyväksytty luku on valittu, enter-näppäimellä ohjelma arpoo syötetyn määrän huoneita ja trianguloi huoneiden väliset yhteydet (punaiset viivat) ja etsii näistä yhteyksistä lyhimmän virittävän puun (siniset viivat).
+Ohjelmalle syötetään numeronäppäimillä luku väliltä 3 - 400. Kun hyväksytty luku on valittu, enter-näppäimellä ohjelma arpoo syötetyn määrän huoneita ja generoi huoneiden välille reitit. Välilyönnillä saa näkymään huoneiden välisen triangulaation (punaiset viivat) ja triangulaatiosta lyhimmän virittävän puun (siniset viivat).
