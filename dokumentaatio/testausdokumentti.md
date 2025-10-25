@@ -14,4 +14,4 @@ ja kattavuusraportin saa komennolla:
 poetry run invoke coverage-report
 ```
 
-Ohjelmaa ei ole vielä testattu monimutkaisemmilla testeillä.
+Ohjelmaa ole testattu monimutkaisemmilla testeillä.
