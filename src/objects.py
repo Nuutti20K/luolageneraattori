@@ -2,7 +2,7 @@ import math
 
 # Huoneella on vasemman ylänurkan koordinaatit sekä leveys ja korkeus
 # Huoneen ulottuvuudet kerrotaan square_size muutujalla kun niitä käsitellään pelialueella
-# Huoneen leveys ja korkeus on väliaikaisesti muutettu vakioksi satunnaisgeneroinnin helpottamiseksi
+# Huoneen leveys ja korkeus on määritelty vakioksi
 
 class Room:
     def __init__(self, x, y):

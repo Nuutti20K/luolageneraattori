@@ -7,7 +7,8 @@ class GameLoop:
         self.renderer = renderer
         self.amount = "10"
         self.running = True
-        self.toggle = True
+        self.bw_toggle = False
+        self.mst_toggle = False
         self.dungeon = Dungeon(10)
 
     def start_game(self):
@@ -21,12 +22,15 @@ class GameLoop:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN and self.amount != "" and int(self.amount) >= 3:
                     self.dungeon = Dungeon(int(self.amount))
-                    self.renderer.render_rooms(self.dungeon, self.toggle)
+                    self.renderer.render_rooms(self.dungeon, self.bw_toggle, self.mst_toggle)
                 elif event.key == pygame.K_BACKSPACE and len(self.amount) > 0:
                     self.amount = self.amount[:-1]
                 elif event.key == pygame.K_SPACE:
-                    self.toggle = not self.toggle
-                    self.renderer.render_rooms(self.dungeon, self.toggle)
+                    self.bw_toggle = not self.bw_toggle
+                    self.renderer.render_rooms(self.dungeon, self.bw_toggle, self.mst_toggle)
+                elif event.key == pygame.K_RSHIFT:
+                    self.mst_toggle = not self.mst_toggle
+                    self.renderer.render_rooms(self.dungeon, self.bw_toggle, self.mst_toggle)
                 elif (len(self.amount) <= 10 and event.key != pygame.K_BACKSPACE and
                      event.unicode in "0123456789" and int(self.amount + event.unicode) <= 400):
                     self.amount += event.unicode

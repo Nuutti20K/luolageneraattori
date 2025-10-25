@@ -8,7 +8,7 @@ class Renderer:
         self.red = (255, 0, 0)
         self.blue = (0, 0, 255)
 
-    def render_rooms(self, dungeon, toggle):
+    def render_rooms(self, dungeon, bw_toggle, mst_toggle):
 
         self.display.fill((0,0,0))
 
@@ -19,17 +19,18 @@ class Renderer:
         for room in dungeon.rooms:
             pygame.draw.rect(self.display, self.green, room.get_rect())
 
-        if toggle:
+        if bw_toggle:
             for triangle in dungeon.triangles:
                 v1 = triangle.v1.to_tuple()
                 v2 = triangle.v2.to_tuple()
                 v3 = triangle.v3.to_tuple()
-                pygame.draw.line(self.display, self.red, v1, v2)
-                pygame.draw.line(self.display, self.red, v2, v3)
-                pygame.draw.line(self.display, self.red, v3, v1)
+                pygame.draw.line(self.display, self.red, v1, v2, 3)
+                pygame.draw.line(self.display, self.red, v2, v3, 3)
+                pygame.draw.line(self.display, self.red, v3, v1, 3)
 
+        if mst_toggle:
             for edge in dungeon.edges:
-                pygame.draw.line(self.display, self.blue, edge[0], edge[1], 3)
+                pygame.draw.line(self.display, self.blue, edge[0], edge[1], 5)
 
         pygame.display.update()
 
