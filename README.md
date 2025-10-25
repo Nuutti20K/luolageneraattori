@@ -39,4 +39,4 @@ poetry run invoke lint
 ```
 
 ## Käyttöohjeet
-Ohjelmalle syötetään numeronäppäimillä luku väliltä 3 - 400. Kun hyväksytty luku on valittu, enter-näppäimellä ohjelma arpoo syötetyn määrän huoneita ja generoi huoneiden välille reitit. Välilyönnillä saa näkymään huoneiden välisen triangulaation (punaiset viivat) ja triangulaatiosta lyhimmän virittävän puun (siniset viivat).
+Ohjelmalle syötetään numeronäppäimillä luku väliltä 3 - 400. Kun hyväksytty luku on valittu, enter-näppäimellä ohjelma arpoo syötetyn määrän huoneita ja generoi huoneiden välille reitit. Välilyönnillä saa näkymään huoneiden välisen triangulaation (punaiset viivat) oikealla shiftillä saa näkymään triangulaatiosta lyhimmän virittävän puun (siniset viivat).

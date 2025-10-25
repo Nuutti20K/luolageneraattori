@@ -1,6 +1,6 @@
 # Testausdokumentti
 ## Testikattavuus
-![](./kuvat/testikattavuus.png)
+![](./kuvat/testikattavuus1.png)
 
 ## Testauksesta
 Ykiskkötestit on tehty kaikille objekteille, sekä Bowyer-Watson- ja Primmin algoritmeille.
